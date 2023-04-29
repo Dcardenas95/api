@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EstablishmentsController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,11 @@ Route::middleware('auth:sanctum')->post('/orders', function () {
             'message' => 'order created'
         ];
 
+});
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('establishment' , [EstablishmentsController::class , 'index']);
+    Route::get('establishment/{establishment}' , [EstablishmentsController::class , 'show']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
