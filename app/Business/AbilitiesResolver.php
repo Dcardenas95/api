@@ -11,12 +11,12 @@ class AbilitiesResolver
   {
 
     if ($user->role === 'client') {
-      return static::resolveClient($device);
+      return static::resolveForClient($device);
     }
 
   }
 
-  public static function resolveClient ( $device )
+  public static function resolveForClient ( $device )
   {
 
     return match ($device) {

@@ -15,6 +15,7 @@ class EstablishmentSeeder extends Seeder
     public function run(): void
     {
         Establishment::factory()
+        ->has(Product::factory()->count(5))
         ->count(50)
         ->create();
     }
