@@ -40,6 +40,9 @@ class CartController extends Controller
                 'qty' => request('qty'), 
                 'price' => $product->price, 
                 'weight' => 0, 
+                'options' => [
+                    'product_id' => $product->id
+                ]
             ]
         );
 

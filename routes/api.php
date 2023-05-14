@@ -5,7 +5,9 @@ use App\Http\Controllers\CoordinateDeliveryController;
 use App\Http\Controllers\DeliveryAvailabilityController;
 use App\Http\Controllers\EstablishmentsController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MyOrderController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OrderTakeController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +29,10 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::put('availability' , [DeliveryAvailabilityController::class, 'update']);
     Route::put('coordinates' , [CoordinateDeliveryController::class, 'update']);
+    Route::put('orders/{order}/take' , [OrderTakeController::class, 'update']);
+
+    Route::get('my-orders' , [MyOrderController::class, 'index']);
+    Route::put('my-orders/{order}' , [MyOrderController::class, 'update']);
 
     Route::get('establishment' , [EstablishmentsController::class, 'index']);
     Route::get('establishment/{establishment}' , [EstablishmentsController::class , 'show']);

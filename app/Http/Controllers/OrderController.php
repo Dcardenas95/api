@@ -13,8 +13,14 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $orders = Order::where('user_id', Auth::id())
+        $orders = Order::when(Auth::user()->isClient(), function ($query){
+            $query->where('user_id', Auth::id());
+        })
+        ->when(Auth::user()->isDelivery(), function ($query) {
+            $query->where('status', 'pending');
+        })
         ->paginate(10);
+
         return OrderResource::collection($orders);
     }
 

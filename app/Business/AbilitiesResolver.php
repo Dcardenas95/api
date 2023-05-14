@@ -47,6 +47,8 @@ class AbilitiesResolver
     return [
       'availability:update',
       'coordinates:update',
+      'orders:show',
+      'orders:update',
     ];
   }
 }
