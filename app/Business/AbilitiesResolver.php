@@ -34,6 +34,7 @@ class AbilitiesResolver
       default => [
         'establishment:show',
         'product:show',
+        'orders:show',
         'orders:create',
         'orders:cancel',
         'cart:manage',
